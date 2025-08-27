@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const config = require("config");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -10,7 +11,7 @@ app.use(express.json());
 
 // Connect to MongoDB Atlas
 mongoose
-  .connect(config.get("db"), {
+  .connect(process.env.db, {
     // options not needed in latest driver
   })
   .then(() => console.log("✅ MongoDB connected"))

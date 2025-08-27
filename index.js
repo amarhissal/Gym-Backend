@@ -3,7 +3,12 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const cors = require("cors");
+
 const app = express();
+// Allow all origins
+app.use(cors({ origin: "*" }));
+
 const PORT = process.env.PORT || 5000;
 
 // Middleware
